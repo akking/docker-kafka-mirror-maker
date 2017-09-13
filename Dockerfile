@@ -4,14 +4,12 @@ MAINTAINER Ambud Sharma
 ENV WHITELIST *
 ENV DESTINATION "localhost:6667"
 ENV SOURCE "localhost:6667"
-ENV SECURITY "PLAINTEXT"
 ENV GROUPID "_mirror_maker"
-ENV PRINCIPAL "kafka/localhost@EXAMPLE.COM"
-ENV KEYTAB_FILENAME "mirror.keytab"
+ENV SECURITY "PLAINTEXT"
 
 RUN yum -y install wget
-RUN rpm --import http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.5.3.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
-RUN cd /etc/yum.repos.d/;wget http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.5.3.0/hdp.repo
+RUN rpm --import http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.2.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+RUN cd /etc/yum.repos.d/;wget http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.2.0/hdp.repo
 RUN yum -y install kafka
 RUN yum -y install gettext
 
